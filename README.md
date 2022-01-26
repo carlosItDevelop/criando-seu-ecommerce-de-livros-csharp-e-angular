@@ -1,12 +1,10 @@
-## Projeto Asp.Net Core 6 Web API, foco no Unit of Work Pattern
+## Projeto - Criando seu e-commerce de livros em C# e Angular
 
 ---
 
-#### DIRETO ao PONTO é uma série que apresentará aos alunos algumas técnicas de design de software e patterns sem burocracia!
+#### Apresentaremos uma API de uma pequena Loja Virtual básica em C#, consumida com Angular no Frontend.
 
-> Curso Direto ao Ponto, mostrando um Caso de Uso interessante, que é o desenvolvimento de uma aplicação Web API em Asp.Net Core 6, para gerenciar as vagas num determinado Voo.A ideia central é utilizar o Unit of Work Pattern, juntamente com o Pattern de Repositório para provar um ponto de falha de design que pode ser desastroso.
-
-> Vamos demonstrar 2 (duas) das formas de implementar o Pattern Unit of Work, mas no processo apresentaremos muitas features interessantes, como: 
+> Solução em Asp.Net Net Core 5, onde demonstraremos algumas features interessantes, como: 
 
 - Separação do projeto em camadas; 
 
