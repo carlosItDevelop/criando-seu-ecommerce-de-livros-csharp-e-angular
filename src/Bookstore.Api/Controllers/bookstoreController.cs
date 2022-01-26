@@ -9,13 +9,13 @@ namespace APIBookstore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class bookstoreController : ControllerBase
+    public class BookstoreController : ControllerBase
     {
         private readonly TodoContext _context;
 
 
 
-        public bookstoreController(TodoContext context)
+        public BookstoreController(TodoContext context)
         {
             _context = context;
 
