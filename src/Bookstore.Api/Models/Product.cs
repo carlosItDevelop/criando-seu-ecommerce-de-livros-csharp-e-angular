@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace APIBookstore.Models
+﻿namespace APIBookstore.Api.Models
 {
     public class Product
     {

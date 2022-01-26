@@ -1,13 +1,10 @@
-﻿using APIBookstore.Models;
-using Microsoft.AspNetCore.Http;
+﻿using APIBookstore.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIBookstore.Controllers
+namespace APIBookstore.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -48,7 +45,7 @@ namespace APIBookstore.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetTodoItems()
         {
-            return await _context.TodoProducts.ToListAsync(); 
+            return await _context.TodoProducts.ToListAsync();
 
 
 
