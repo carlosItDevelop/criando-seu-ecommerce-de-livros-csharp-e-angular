@@ -1,4 +1,4 @@
-﻿namespace APIBookstore.Api.Models
+﻿namespace Bookstore.Domain.Entities
 {
     public class Product
     {

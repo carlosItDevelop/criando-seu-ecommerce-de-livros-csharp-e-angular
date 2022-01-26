@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bookstore.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace APIBookstore.Api.Models
 {
