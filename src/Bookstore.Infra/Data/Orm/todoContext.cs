@@ -1,7 +1,7 @@
 ﻿using Bookstore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace APIBookstore.Api.Models
+namespace Bookstore.Infra.Data.Orm
 {
     public class TodoContext : DbContext
     {

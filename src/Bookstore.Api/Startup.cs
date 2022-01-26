@@ -1,4 +1,4 @@
-using APIBookstore.Api.Models;
+using Bookstore.Infra.Data.Orm;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

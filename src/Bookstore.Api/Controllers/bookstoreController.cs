@@ -1,4 +1,5 @@
-﻿using APIBookstore.Api.Models;
+﻿using Bookstore.Domain.Entities;
+using Bookstore.Infra.Data.Orm;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
