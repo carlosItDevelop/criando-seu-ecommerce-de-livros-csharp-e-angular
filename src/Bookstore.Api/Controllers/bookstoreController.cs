@@ -1,5 +1,4 @@
-﻿using APIBookstore.Api.Dtos;
-using Bookstore.Domain.Entities;
+﻿using Bookstore.Domain.Entities;
 using Bookstore.Infra.Data.Orm;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
