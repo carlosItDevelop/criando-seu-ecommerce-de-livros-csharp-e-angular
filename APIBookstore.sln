@@ -5,9 +5,15 @@ VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBookstore.Api", "src\Bookstore.Api\APIBookstore.Api.csproj", "{1451CADF-0528-43F5-8814-7B0493171E11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Domain", "src\Bookstore.Domain\Bookstore.Domain.csproj", "{D1499528-5E2D-4BB6-BE1A-07B1B9690ED0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.Domain", "src\Bookstore.Domain\Bookstore.Domain.csproj", "{D1499528-5E2D-4BB6-BE1A-07B1B9690ED0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Infra", "src\Bookstore.Infra\Bookstore.Infra.csproj", "{B6C48450-EB65-4DC9-B084-1D17FBB08B1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.Infra", "src\Bookstore.Infra\Bookstore.Infra.csproj", "{B6C48450-EB65-4DC9-B084-1D17FBB08B1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentation", "1.Presentation", "{BA40AED6-CE5F-4AC2-99E3-D9EFDECE8A38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{13C4C6B8-6A1E-4D5B-AF85-776D39769180}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Infra", "3.Infra", "{445ADFE0-85C6-4296-A9BA-5039C47F0ABB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1451CADF-0528-43F5-8814-7B0493171E11} = {BA40AED6-CE5F-4AC2-99E3-D9EFDECE8A38}
+		{D1499528-5E2D-4BB6-BE1A-07B1B9690ED0} = {13C4C6B8-6A1E-4D5B-AF85-776D39769180}
+		{B6C48450-EB65-4DC9-B084-1D17FBB08B1F} = {445ADFE0-85C6-4296-A9BA-5039C47F0ABB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {468C5632-7858-4309-98AA-9CDE3D9C3B0D}
