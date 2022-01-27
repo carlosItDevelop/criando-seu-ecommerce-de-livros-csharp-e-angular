@@ -10,9 +10,5 @@
     <ProjectReference Include="..\Bookstore.Infra\Bookstore.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
 
 </Project>
