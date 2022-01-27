@@ -1,4 +1,4 @@
-﻿namespace Bookstore.Domain.Entities
+﻿namespace APIBookstore.Api.Dtos
 {
     public class ProductDTO
     {
