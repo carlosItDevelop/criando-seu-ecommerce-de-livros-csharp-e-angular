@@ -37,14 +37,14 @@ namespace APIBookstore.Api
                         .AllowAnyHeader());
 
 
-                options.AddPolicy("Production",
-                    builder =>
-                        builder
-                            .WithMethods("GET")
-                            .WithOrigins("https://cooperchip.com.br")
-                            .SetIsOriginAllowedToAllowWildcardSubdomains()
-                            //.WithHeaders(HeaderNames.ContentType, "x-custom-header")
-                            .AllowAnyHeader());
+                //options.AddPolicy("Production",
+                //    builder =>
+                //        builder
+                //            .WithMethods("GET")
+                //            .WithOrigins("https://cooperchip.com.br")
+                //            .SetIsOriginAllowedToAllowWildcardSubdomains()
+                //            //.WithHeaders(HeaderNames.ContentType, "x-custom-header")
+                //            .AllowAnyHeader());
             });
 
 
@@ -52,9 +52,16 @@ namespace APIBookstore.Api
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
+                app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseCors("Development"); // Usar apenas nas demos => Configuração Ideal: Production
+                app.UseHsts();
             }
 
             app.UseHttpsRedirection();

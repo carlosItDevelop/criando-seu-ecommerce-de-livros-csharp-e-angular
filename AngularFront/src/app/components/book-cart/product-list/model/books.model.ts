@@ -1,4 +1,4 @@
-export class Book 
+export class Book
 {
     id!: string;
     name!: string;
@@ -6,6 +6,4 @@ export class Book
     quantity!: number;
     category!: string;
     img!: string;
-
-    
 }
