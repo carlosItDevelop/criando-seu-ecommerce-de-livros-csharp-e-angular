@@ -27,9 +27,29 @@ namespace APIBookstore.Api
                                               opt.UseInMemoryDatabase(databaseName: "TodoProducts"));
 
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Development",
+                    builder =>
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+
+
+                options.AddPolicy("Production",
+                    builder =>
+                        builder
+                            .WithMethods("GET")
+                            .WithOrigins("https://cooperchip.com.br")
+                            .SetIsOriginAllowedToAllowWildcardSubdomains()
+                            //.WithHeaders(HeaderNames.ContentType, "x-custom-header")
+                            .AllowAnyHeader());
+            });
+
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "IIS Express": {
+    "IIS Dev": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/bookstore",
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "APIBookstore": {
+    "Self Host": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/bookstore",
