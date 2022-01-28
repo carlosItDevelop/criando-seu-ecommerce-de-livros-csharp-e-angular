@@ -51,7 +51,7 @@ namespace Bookstore.Infra.Repository.Base
 
         public void Dispose()
         {
-            _context?.DisposeAsync();
+            _ = (_context?.DisposeAsync());
         }
     }
 }
