@@ -52,6 +52,11 @@ namespace APIBookstore.Api.Controllers
             }
             catch (System.Exception)
             {
+                /* faça algo... 
+                 * avise a alguém 
+                 * ou não faça nada...
+                 */
+                await _repoProducts.Rollback();
                 return BadRequest("Erro ao tentar adicionar Produto");
             }
 
@@ -59,19 +64,19 @@ namespace APIBookstore.Api.Controllers
 
         // GET: api/
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetTodoItems()
+        public async Task<IEnumerable<Product>> GetTodoItems()
         {
-            return await _context.TodoProducts.ToListAsync();
-
-
-
+            //return await _context.TodoProducts.ToListAsync();
+            return await _repoProducts.GetAll();
         }
+
 
         // GET: api/bookstore/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProdut(int id)
         {
-            var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
+            //var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
+            var todoItem = await _repoProducts.GetById(id);
 
             if (todoItem == null)
             {
