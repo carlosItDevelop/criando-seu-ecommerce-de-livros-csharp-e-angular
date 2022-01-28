@@ -2,6 +2,7 @@
 
 	1. Ok - Mudar o Banco de Dados de InMomore para localDb;
 	2. Ok - Implementar a semente de Dados Iniciais, através da Program.cs com Extension Method;
+		2.a. Gerar a primeira Migration
 	3. Ok - Retirar qualquer referencia ao DbContext da Controller de Product;
 		Ok - 3.a. Desacoplar, utilizando DI para obter a IoC;
 	4. Instalar, Configurar e Registrar o AutoMapper;

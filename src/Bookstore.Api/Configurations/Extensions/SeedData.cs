@@ -16,10 +16,10 @@ namespace APIBookstore.Api.Configurations.Extensions
             using (var context =
                 new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
-                // Look for any movies.
+                // Buscando qualquer Produto.
                 if (context.Products.Any())
                 {
-                    return;   // DB has been seeded
+                    return;   // Banco de Dados já foi semeado!
                 }
 
                 context.Products.AddRange(
