@@ -1,4 +1,6 @@
-﻿using Bookstore.Domain.Abstractions.Repository;
+﻿using APIBookstore.Api.Dtos;
+using AutoMapper;
+using Bookstore.Domain.Abstractions.Repository;
 using Bookstore.Domain.Entities;
 using Bookstore.Infra.Data.Orm;
 using Microsoft.AspNetCore.Http;
@@ -14,27 +16,30 @@ namespace APIBookstore.Api.Controllers
     public class BookstoreController : ControllerBase
     {
         private readonly IRepositoryProducts _repoProducts;
+        private readonly IMapper _mapper;
 
-        public BookstoreController(IRepositoryProducts repoProducts)
+        public BookstoreController(IRepositoryProducts repoProducts, 
+                                   IMapper mapper)
         {
             _repoProducts = repoProducts;
+            _mapper = mapper;
         }
 
         [Route("")]
         [HttpGet("obter-todos")]
-        public async Task<IEnumerable<Product>> GetTodoItems()
+        public async Task<IEnumerable<ProductDTO>> GetTodoItems()
         {
             //return await _context.TodoProducts.ToListAsync();
-            return await _repoProducts.GetAll();
+            return  _mapper.Map<IEnumerable<ProductDTO>>(await _repoProducts.GetAll());
         }
 
 
         // GET: api/bookstore/5
         [HttpGet("obter-produto/{id}")]
-        public async Task<ActionResult<Product>> GetProdut(int id)
+        public async Task<ActionResult<ProductDTO>> GetProdut(int id)
         {
             //var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
-            var todoItem = await _repoProducts.GetById(id);
+            var todoItem = _mapper.Map<ProductDTO>(await _repoProducts.GetById(id));
 
             if (todoItem == null)
             {
@@ -48,7 +53,7 @@ namespace APIBookstore.Api.Controllers
         [HttpPost("adicionar-produto")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<Product>> PostProduct(ProductDTO productDto)
         {
             //_context.TodoProducts.Add(product);
             //await _context.SaveChangesAsync();
@@ -57,10 +62,10 @@ namespace APIBookstore.Api.Controllers
 
             try
             {
-                await _repoProducts.Add(product);
+                await _repoProducts.Add(_mapper.Map<Product>(productDto));
                 await _repoProducts.Commit();
 
-                return CreatedAtAction(nameof(GetProdut), new { id = product.Id }, product);
+                return CreatedAtAction(nameof(GetProdut), new { id = productDto.Id }, productDto);
             }
             catch (System.Exception)
             {
