@@ -1,3 +1,4 @@
+using APIBookstore.Api.Configurations.AutoMapper;
 using Bookstore.Domain.Abstractions.Repository;
 using Bookstore.Infra.Data.Orm;
 using Bookstore.Infra.Repository.Entities;
@@ -23,6 +24,10 @@ namespace APIBookstore.Api
         {
             services.AddControllers();
 
+            // Duas formas de Registrar, estando no mesmo projeto da Startup Class
+            //services.AddAutoMapper(typeof(Startup), typeof(AutoMapperConfig));
+
+            services.AddAutoMapper(typeof(AutoMapperConfig));
 
             //services.AddDbContext<ApplicationDbContext>(opt =>
             //                                  opt.UseInMemoryDatabase(databaseName: "TodoProducts"));
