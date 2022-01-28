@@ -1,4 +1,5 @@
-﻿using Bookstore.Domain.Entities;
+﻿using Bookstore.Domain.Abstractions.Repository;
+using Bookstore.Domain.Entities;
 using Bookstore.Infra.Data.Orm;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +14,10 @@ namespace APIBookstore.Api.Controllers
     {
         private readonly TodoContext _context;
 
+        private readonly IRepositoryProducts _repoProducts;
 
-
-        public BookstoreController(TodoContext context)
+        public BookstoreController(TodoContext context, 
+                                   IRepositoryProducts repoProducts)
         {
             _context = context;
 
@@ -30,9 +32,7 @@ namespace APIBookstore.Api.Controllers
             _context.TodoProducts.AddRange(listaProduct);
 
             _context.SaveChanges();
-
-
-
+            _repoProducts = repoProducts;
         }
 
         [HttpPost]

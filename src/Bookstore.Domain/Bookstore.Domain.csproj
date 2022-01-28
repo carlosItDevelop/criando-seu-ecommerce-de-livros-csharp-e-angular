@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\DomainInterfaces\" />
     <Folder Include="Abstractions\DomainServices\" />
   </ItemGroup>
 
