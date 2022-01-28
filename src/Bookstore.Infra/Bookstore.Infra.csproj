@@ -15,4 +15,9 @@
     <ProjectReference Include="..\Bookstore.Domain\Bookstore.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\Abstractions\" />
+    <Folder Include="Repository\Entities\" />
+  </ItemGroup>
+
 </Project>

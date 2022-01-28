@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Domain.Abstractions.Repository.Base
 {
-    public interface IGenericRepository<T,Key> where T : class, IDisposable, new()
+    public interface IGenericRepository<T,Key> where T : class
     {
         Task<T> GetById(Key id);
         Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> quando = null);
