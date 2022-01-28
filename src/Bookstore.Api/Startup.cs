@@ -42,15 +42,18 @@ namespace APIBookstore.Api
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 
+                options.AddPolicy("Production",
+                    builder =>
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
 
-                //options.AddPolicy("Production",
-                //    builder =>
-                //        builder
-                //            .WithMethods("GET")
-                //            .WithOrigins("https://cooperchip.com.br")
-                //            .SetIsOriginAllowedToAllowWildcardSubdomains()
-                //            //.WithHeaders(HeaderNames.ContentType, "x-custom-header")
-                //            .AllowAnyHeader());
+
+                //options.AddPolicy("Production", builder => builder
+                //            .WithMethods("GET").WithOrigins("https://cooperchip.com.br")
+                //            .SetIsOriginAllowedToAllowWildcardSubdomains().AllowAnyHeader());
+
             });
 
 
