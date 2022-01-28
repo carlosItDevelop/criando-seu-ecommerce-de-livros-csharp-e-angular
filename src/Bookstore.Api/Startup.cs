@@ -2,6 +2,7 @@ using APIBookstore.Api.Configurations.AutoMapper;
 using Bookstore.Domain.Abstractions.Repository;
 using Bookstore.Infra.Data.Orm;
 using Bookstore.Infra.Repository.Entities;
+using Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +35,8 @@ namespace APIBookstore.Api
 
             services.AddDbContext<ApplicationDbContext>(options =>
                         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddApiConfig();
 
             services.AddScoped<IRepositoryProducts, RepositoryProducts>();
 

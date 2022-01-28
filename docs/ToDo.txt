@@ -1,12 +1,12 @@
 
 
-	1. Ok - Mudar o Banco de Dados de InMomore para localDb;
-	2. Ok - Implementar a semente de Dados Iniciais, através da Program.cs com Extension Method;
-		2.a. Gerar a primeira Migration
-	3. Ok - Retirar qualquer referencia ao DbContext da Controller de Product;
-		Ok - 3.a. Desacoplar, utilizando DI para obter a IoC;
-	4. Instalar, Configurar e Registrar o AutoMapper;
-		4.a. Utilizar as DTOs nas Actions;
+	1. Mudar o Banco de Dados de InMomore para localDb; ( Ok )
+	2. Implementar a semente de Dados Iniciais, através da Program.cs com Extension Method; ( Ok )
+		2.a. Gerar a primeira Migration; ( Ok )
+	3. Retirar qualquer referencia ao DbContext da Controller de Product; ( Ok )
+		3.a. Desacoplar, utilizando DI para obter a IoC; ( Ok )
+	4. Instalar, Configurar e Registrar o AutoMapper; ( Ok )
+		4.a. Utilizar as DTOs nas Actions; ( Ok )
 	5. Criar o ProductMapping depois de gerar a Migration;
 		5.a. Configurar o OnModelCreating (varchar(80)) e AplyConfiguration automático;
 	6. Instalar, Configurar e Registrar o FluentValidation;
