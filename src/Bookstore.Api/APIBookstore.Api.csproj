@@ -8,11 +8,9 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
-
   <ItemGroup>
     <ProjectReference Include="..\Bookstore.Domain\Bookstore.Domain.csproj" />
     <ProjectReference Include="..\Bookstore.Infra\Bookstore.Infra.csproj" />
   </ItemGroup>
-
 
 </Project>
