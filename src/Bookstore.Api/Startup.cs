@@ -1,4 +1,6 @@
+using Bookstore.Domain.Abstractions.Repository;
 using Bookstore.Infra.Data.Orm;
+using Bookstore.Infra.Repository.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +27,8 @@ namespace APIBookstore.Api
 
             services.AddDbContext<TodoContext>(opt =>
                                               opt.UseInMemoryDatabase(databaseName: "TodoProducts"));
+
+            services.AddScoped<IRepositoryProducts, RepositoryProducts>();
 
 
             services.AddCors(options =>
