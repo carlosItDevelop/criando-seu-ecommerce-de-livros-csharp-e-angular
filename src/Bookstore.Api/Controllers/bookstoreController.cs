@@ -1,6 +1,7 @@
 ﻿using Bookstore.Domain.Abstractions.Repository;
 using Bookstore.Domain.Entities;
 using Bookstore.Infra.Data.Orm;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace APIBookstore.Api.Controllers
                 new Product{ Id = "5", Name = "Book5", Price = 15, Quantity = 5, Category = "action", Img = "Img1" }
             };
 
-            _context.TodoProducts.AddRange(listaProduct);
+            _context.Products.AddRange(listaProduct);
 
             _context.SaveChanges();
             _repoProducts = repoProducts;
@@ -61,6 +62,8 @@ namespace APIBookstore.Api.Controllers
 
 
         [HttpPost("adicionar-produto")]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
             //_context.TodoProducts.Add(product);
