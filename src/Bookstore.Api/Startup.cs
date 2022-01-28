@@ -27,11 +27,7 @@ namespace APIBookstore.Api
 
             // Duas formas de Registrar, estando no mesmo projeto da Startup Class
             //services.AddAutoMapper(typeof(Startup), typeof(AutoMapperConfig));
-
             services.AddAutoMapper(typeof(AutoMapperConfig));
-
-            //services.AddDbContext<ApplicationDbContext>(opt =>
-            //                                  opt.UseInMemoryDatabase(databaseName: "TodoProducts"));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -40,22 +36,10 @@ namespace APIBookstore.Api
 
             services.AddScoped<IRepositoryProducts, RepositoryProducts>();
 
-
             services.AddCors(options =>
             {
-                options.AddPolicy("Development",
-                    builder =>
-                        builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-
-                options.AddPolicy("Production",
-                    builder =>
-                        builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
+                options.AddPolicy("Development", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                options.AddPolicy("Production", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 
                 //options.AddPolicy("Production", builder => builder
