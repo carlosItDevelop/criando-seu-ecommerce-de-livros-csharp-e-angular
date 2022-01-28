@@ -49,6 +49,9 @@ namespace Bookstore.Infra.Repository.Base
             await Task.CompletedTask;
         }
 
-
+        public void Dispose()
+        {
+            _context?.DisposeAsync();
+        }
     }
 }
