@@ -10,6 +10,6 @@ namespace Bookstore.Infra.Data.Orm
         {
         }
 
-        public DbSet<Product> TodoProducts { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

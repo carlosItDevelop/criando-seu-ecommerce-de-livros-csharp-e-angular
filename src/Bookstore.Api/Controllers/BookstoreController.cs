@@ -30,7 +30,7 @@ namespace APIBookstore.Api.Controllers
                 new Product{ Id = "5", Name = "Book5", Price = 15, Quantity = 5, Category = "action", Img = "Img1" }
             };
 
-            _context.TodoProducts.AddRange(listaProduct);
+            _context.Products.AddRange(listaProduct);
 
             _context.SaveChanges();
             _repoProducts = repoProducts;
