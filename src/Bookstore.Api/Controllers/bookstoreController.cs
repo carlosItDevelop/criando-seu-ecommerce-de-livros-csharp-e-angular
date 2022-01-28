@@ -12,11 +12,11 @@ namespace APIBookstore.Api.Controllers
     [ApiController]
     public class BookstoreController : ControllerBase
     {
-        private readonly TodoContext _context;
+        private readonly ApplicationDbContext _context;
 
         private readonly IRepositoryProducts _repoProducts;
 
-        public BookstoreController(TodoContext context, 
+        public BookstoreController(ApplicationDbContext context, 
                                    IRepositoryProducts repoProducts)
         {
             _context = context;
@@ -35,7 +35,32 @@ namespace APIBookstore.Api.Controllers
             _repoProducts = repoProducts;
         }
 
-        [HttpPost]
+        [Route("")]
+        [HttpGet("obter-todos")]
+        public async Task<IEnumerable<Product>> GetTodoItems()
+        {
+            //return await _context.TodoProducts.ToListAsync();
+            return await _repoProducts.GetAll();
+        }
+
+
+        // GET: api/bookstore/5
+        [HttpGet("obter-produto/{id}")]
+        public async Task<ActionResult<Product>> GetProdut(int id)
+        {
+            //var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
+            var todoItem = await _repoProducts.GetById(id);
+
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            return todoItem;
+        }
+
+
+        [HttpPost("adicionar-produto")]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
             //_context.TodoProducts.Add(product);
@@ -60,30 +85,6 @@ namespace APIBookstore.Api.Controllers
                 return BadRequest("Erro ao tentar adicionar Produto");
             }
 
-        }
-
-        // GET: api/
-        [HttpGet]
-        public async Task<IEnumerable<Product>> GetTodoItems()
-        {
-            //return await _context.TodoProducts.ToListAsync();
-            return await _repoProducts.GetAll();
-        }
-
-
-        // GET: api/bookstore/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProdut(int id)
-        {
-            //var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
-            var todoItem = await _repoProducts.GetById(id);
-
-            if (todoItem == null)
-            {
-                return NotFound();
-            }
-
-            return todoItem;
         }
 
     }
