@@ -28,5 +28,12 @@ namespace Bookstore.Infra.Repository.Entities
              */
             await Task.CompletedTask;
         }
+
+        public async override Task<Product> GetById(int id)
+        {
+            var idStr = id.ToString();
+            return await _context.Set<Product>().FindAsync(idStr);
+        }
+
     }
 }

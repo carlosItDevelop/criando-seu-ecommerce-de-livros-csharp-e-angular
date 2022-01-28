@@ -67,7 +67,6 @@ namespace APIBookstore.Api.Controllers
         public async Task<IEnumerable<Product>> GetTodoItems()
         {
             //return await _context.TodoProducts.ToListAsync();
-
             return await _repoProducts.GetAll();
         }
 
@@ -76,7 +75,8 @@ namespace APIBookstore.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProdut(int id)
         {
-            var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
+            //var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
+            var todoItem = await _repoProducts.GetById(id);
 
             if (todoItem == null)
             {
