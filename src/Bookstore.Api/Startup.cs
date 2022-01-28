@@ -19,14 +19,16 @@ namespace APIBookstore.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
 
-            services.AddDbContext<ApplicationDbContext>(opt =>
-                                              opt.UseInMemoryDatabase(databaseName: "TodoProducts"));
+            //services.AddDbContext<ApplicationDbContext>(opt =>
+            //                                  opt.UseInMemoryDatabase(databaseName: "TodoProducts"));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IRepositoryProducts, RepositoryProducts>();
 
