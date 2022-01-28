@@ -64,13 +64,13 @@ namespace APIBookstore.Api.Controllers
 
         // GET: api/
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetTodoItems()
+        public async Task<IEnumerable<Product>> GetTodoItems()
         {
-            return await _context.TodoProducts.ToListAsync();
+            //return await _context.TodoProducts.ToListAsync();
 
-
-
+            return await _repoProducts.GetAll();
         }
+
 
         // GET: api/bookstore/5
         [HttpGet("{id}")]
