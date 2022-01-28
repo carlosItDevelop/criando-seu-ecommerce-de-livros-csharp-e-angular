@@ -13,26 +13,10 @@ namespace APIBookstore.Api.Controllers
     [ApiController]
     public class BookstoreController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-
         private readonly IRepositoryProducts _repoProducts;
 
-        public BookstoreController(ApplicationDbContext context, 
-                                   IRepositoryProducts repoProducts)
+        public BookstoreController(IRepositoryProducts repoProducts)
         {
-            _context = context;
-
-            var listaProduct = new List<Product> {
-                new Product{ Id = "1", Name = "Book1", Price = 26, Quantity = 1, Category = "action", Img = "Img1" },
-                new Product{ Id = "2", Name = "Book2", Price = 52, Quantity = 1, Category = "action", Img = "Img1" },
-                new Product{ Id = "3", Name = "Book3", Price = 20, Quantity = 2, Category = "action", Img = "Img1" },
-                new Product{ Id = "4", Name = "Book4", Price = 10, Quantity = 1, Category = "action", Img = "Img1" },
-                new Product{ Id = "5", Name = "Book5", Price = 15, Quantity = 5, Category = "action", Img = "Img1" }
-            };
-
-            _context.Products.AddRange(listaProduct);
-
-            _context.SaveChanges();
             _repoProducts = repoProducts;
         }
 
