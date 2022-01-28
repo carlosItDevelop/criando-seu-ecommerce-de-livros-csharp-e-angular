@@ -38,10 +38,23 @@ namespace APIBookstore.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            _context.TodoProducts.Add(product);
-            await _context.SaveChangesAsync();
+            //_context.TodoProducts.Add(product);
+            //await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetProdut), new { id = product.Id }, product);
+            if (!ModelState.IsValid) return BadRequest("A Model está inválida!");
+
+            try
+            {
+                await _repoProducts.Add(product);
+                await _repoProducts.Commit();
+
+                return CreatedAtAction(nameof(GetProdut), new { id = product.Id }, product);
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Erro ao tentar adicionar Produto");
+            }
+
         }
 
         // GET: api/
