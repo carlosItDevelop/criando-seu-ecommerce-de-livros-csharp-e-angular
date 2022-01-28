@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Repository\Abstractions\" />
-    <Folder Include="Repository\Entities\" />
   </ItemGroup>
 
 </Project>
