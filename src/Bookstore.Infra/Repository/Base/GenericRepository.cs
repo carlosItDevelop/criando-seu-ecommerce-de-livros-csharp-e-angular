@@ -11,8 +11,8 @@ namespace Bookstore.Infra.Repository.Base
 {
     public abstract class GenericRepository<T, Key> : IGenericRepository<T, Key> where T : class, new()
     {
-        protected TodoContext _context;
-        public GenericRepository(TodoContext context)
+        protected ApplicationDbContext _context;
+        public GenericRepository(ApplicationDbContext context)
         {
             _context = context;
         }

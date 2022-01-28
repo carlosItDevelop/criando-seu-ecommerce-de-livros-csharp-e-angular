@@ -9,7 +9,7 @@ namespace Bookstore.Infra.Repository.Entities
     public class RepositoryProducts : GenericRepository<Product, int>, IRepositoryProducts
     {
 
-        public RepositoryProducts(TodoContext ctx) 
+        public RepositoryProducts(ApplicationDbContext ctx) 
             : base(ctx)
         {
             _context = ctx;

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bookstore.Infra.Data.Orm
 {
-    public class TodoContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public TodoContext(DbContextOptions<TodoContext> option)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option)
              : base(option)
         {
         }

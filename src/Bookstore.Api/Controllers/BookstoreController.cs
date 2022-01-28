@@ -12,11 +12,11 @@ namespace APIBookstore.Api.Controllers
     [ApiController]
     public class BookstoreController : ControllerBase
     {
-        private readonly TodoContext _context;
+        private readonly ApplicationDbContext _context;
 
         private readonly IRepositoryProducts _repoProducts;
 
-        public BookstoreController(TodoContext context, 
+        public BookstoreController(ApplicationDbContext context, 
                                    IRepositoryProducts repoProducts)
         {
             _context = context;

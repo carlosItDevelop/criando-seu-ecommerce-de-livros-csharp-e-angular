@@ -25,7 +25,7 @@ namespace APIBookstore.Api
             services.AddControllers();
 
 
-            services.AddDbContext<TodoContext>(opt =>
+            services.AddDbContext<ApplicationDbContext>(opt =>
                                               opt.UseInMemoryDatabase(databaseName: "TodoProducts"));
 
             services.AddScoped<IRepositoryProducts, RepositoryProducts>();
