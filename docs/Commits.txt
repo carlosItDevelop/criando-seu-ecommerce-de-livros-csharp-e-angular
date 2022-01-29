@@ -1,0 +1,76 @@
+Commits
+
+Remove and Re-Created Database and Migration
+ApplyConfiguration and SetColumnType in OnModelCreating
+ProductMap created in Infra/Mappings
+
+Change Route v1, v2 and v3 (Remove empty route)
+Service and Configure Swagger Extension segregation
+Change namespaces of files configurations from Swagger
+launchSettings changes with "launchUrl": "swagger"
+v1 marked as obsolete (Deprecated)
+v1 with GetAll only, v2 with GetAll and GetById and v3 with all Methods
+ApiVersion and Router Changes in Controllers v1, v2 and v3
+Versioned Controllers inherited from MainController and without ApiCo… …
+MainController created in Root/Controllers
+Copy BookstoreController to v1, v2 and v3
+services.AddTransient<IConfigureOptions<SwaggerGenOptions>, Configure… …
+services.AddSwaggerConfig() and app.UseSwaggerConfig(provider) Extens… …
+ConfigureSwaggerOptions, Versioning and DefaultValues in Extensions
+Install Swagger, SwaggerGen and SwaggerUI v.5.6.3
+Arrange Startup
+Update Stage...
+Configured and registered service AddApiConfig()
+Mapper.Map<>() Product/ProductDTO > Reverse Implemented in ProductCon… …
+Registerd services.AddAutoMapper(typeof(AutoMapperConfig)); in Startu… …
+AutoMapper<Product, ProductDTO>().ReverseMap() created
+Install AutoMapper 11.0.0
+Discard aply in GenericRepository
+ToDo Upgraded
+Upgrade ToDo text
+Initial Migration Created. After we Mapping
+SeedData Class with Extension Method Initialize created and Program.c… …
+AddPolicy (Cors) Development and Production equals
+Change UseInMemoryDatabase to options.UseSqlServer
+Add Server=(localdb)\\mssqllocaldb in appsettings global and developer
+Update stage
+TodoProduct renamed to Products
+Add Attributes ProducesResponseType(typeof(Product), StatusCodes.Stat… …
+Update Staging
+Renamed TodoDbContext to ApplicationDbContext
+Named Route implemented in TodoController
+
+Override GetById in RepositoryProducts (id is string) <> GenericRepos… …
+GetById implemented in TodoController/GetProduct
+Use Repository Pattern in TodoController/GetTodoItems
+Rollback implemented in catch of the Try block
+Repository and Unit of Work Patterns implemented in PostProduct
+DI IRepositoryProducts, RepositoryProducts in Startup Scoped Life Cic… …
+RepositoryProducts created with IUnitOfWork
+IRepositoryProducts implemented IUnitOfWork
+IUnitOfWork created in Domain and Injetable IRepositoryProducts in Pr… …
+IRepositoryProducts created
+IDisposeble implemented in IGenericRepository
+GenericRepository (abstract class) created succeed
+Created IGenericRepository in Domain/Abstractions/Base
+Changes in .ts files
+IIS Dev and Self Host config in launchUrl, AddCors Service in Startup
+Little changes... comments...
+Change Add to AddRange of the Products. Save a List<Product> in memor… …
+Added ComponentModel.Dataannotation for ProductDTO
+Adjsted namespace to ProductDTO
+Rename ViewModels folder to Dtos folder
+Copy Product to ProductDTO in ViewModels folder
+Renamed Models folder to ViewModels folder
+I changed the "bookstore" key value to "api/bookstore" in lauchUrl (f… …
+Removed Entityframework references from API Project
+Renamed bookstoreController to BookstoreController (Conventions viola… … 
+Moved ContextApp to Infra project, Install EF in Infra project. refer… …
+Created new Project Infra > Class Library C#
+Created new folder Entities in Domain and moved Products of Models in… …
+Created new Project => Domain, Class Library C#
+Change README.md
+Add global.json and change .NET 3.1 to .NET 5.0 
+Rearranjo de pastas e namespaces
+Initial Commit
+
