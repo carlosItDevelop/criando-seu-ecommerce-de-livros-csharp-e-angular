@@ -37,13 +37,11 @@ ToDo:
 
 	8. Implementar Put e Delete; ( Ok )
 
+	9. Manter o modelo original na v1 do projeto (com DbContext) - Apenas GetAll e GetById;
 	
-	9. Instalar, Configurar e Registrar o FluentValidation;
+	10. Instalar, Configurar e Registrar o FluentValidation;
 		9.a. Criar o ProductValidation e o DomainService;
 		9.b. Validar com BaseService e Notification Pattern;
-
-	10. Manter o modelo original na v1 do projeto (com DbContext) - Apenas GetAll e GetById;
-
 
 	11. Upload do Arquivo de Imagem do Product;
 		10.a. Fazer isso também no Swagger;
