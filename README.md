@@ -6,19 +6,58 @@
 
 > Solução em Asp.Net Net Core 5, onde demonstraremos algumas features interessantes, como: 
 
-- Separação do projeto em camadas; 
+### Remodelagem de todo o Backend:
 
-- Utilização do Pattern IOptions (da Microsoft) para ler dados do appsettings json de qualquer lugar da aplicação;
+- Re-Arranjo dos Namespaces and global.json created with configuration .Net 5.0 in "src" project folder
+- Migração do .Net 3.1 para o .Net 5.0
+- Criação dos Projetos Domain, Infra/Data/Repository para separação de responsabilidades por Camadas;
+- Product movido para a Domain Layer, dentro da pasta Entities;
+- Classe de Contexto da App movida para Infra/Data e namespaces ajustados;
+- Install EF Core no Projeto Infra/Data e desinstalado do Projeto API;
+- Rename booksstorController para BookstoreController para evitar a Violation Convension;
+- Pasta Models renomeada para DTOs, pois nossas models foi movida para o Domínio e trabalharemos com DTOs para transporte de dados;
+- Added ComponentModel.Dataannotation in ProductDTO;
+- IIS Dev and Self Host config in launchUrl; 
+- AddCors Service in Startup;
+- Created IGenericRepository in Domain/Abstractions/Base
+- GenericRepository (abstract class) created succeed
+- IDisposable implemented in IGenericRepository and IRepositoryProducts created;
+- IUnitOfWork created in Domain and Injetable IRepositoryProducts, IRepositoryProducts implemented IUnitOfWork
+- RepositoryProducts created with IUnitOfWork;
+- DI <IRepositoryProducts, RepositoryProducts> in Startup Scoped Life Cicle <= Inversion Of Control;
+- Repository and Unit of Work Patterns implemented in PostProduct and Rollback implemented in catch of the Try block;
+- Use Repository Pattern in TodoController/GetTodoItems, GetById implemented in TodoController/GetProduct
+- Override GetById in RepositoryProducts (id => string) <> GenericRepository;
+- Renamed TodoDbContext to ApplicationDbContext;
+- Add Attributes ProducesResponseType(typeof(Product), StatusCodes.Status201Created and StatusCodes.Status400BadRequest;
+- TodoProduct renamed to Products;
+- Add Server=(localdb)\\mssqllocaldb in appsettings global and developer
+- Change UseInMemoryDatabase to options.UseSqlServer and AddPolicy (Cors) Development and Production equals;
+- SeedData Class with Extension Method Initializer created and Program.cs;
+- Install AutoMapper 11.0.0 and AutoMapper<Product, ProductDTO>().ReverseMap() created;
+- Registered services.AddAutoMapper(typeof(AutoMapperConfig)) in Startup Class;
+- Mapper.Map<>() Product/ProductDTO > Reverse Implemented in ProductController;
+- Configured and registered service AddApiConfig() and Install Swagger, SwaggerGen and SwaggerUI v.5.6.3;
+- ConfigureSwaggerOptions, Versioning and DefaultValues in Extensions Methods;
+- services.AddSwaggerConfig() and app.UseSwaggerConfig(provider) Extension Methods created;
+- services.AddTransient<IConfigureOptions<SwaggerGenOptions>, Configured;
+- Copy BookstoreController to v1, v2 and v3 and MainController created in Root/Controllers;
+- Versioned Controllers inherited from MainController and without ApiController Attributes;
+- ApiVersion and Router Changes in Controllers v1, v2 and v3;
+- v1 with GetAll only, v2 with GetAll and GetById and v3 with all Methods;
+- v1 marked as obsolete (Deprecated);
+- launchSettings changes with "launchUrl": "swagger" and Change namespaces of files configurations from Swagger;
+- Service and Configure Swagger Extensions segregation;
+- Change Route v1, v2 and v3 (Remove empty route);
+- ProductMap created in Infra/Mappings;
+- ApplyConfiguration and SetColumnType in OnModelCreating;
+- Remove and Re-Created Database and Migration;
 
-- Neste ponto faremos uso do Life Cicle Singleton do Container de Injeção de Dependência do Asp.Net Core.
+---
 
-- Na última seção apresentaremos 4 (quatro) dos 5 (cinco) S.O.L.I.D Principles na prática, fazendo uma pequena, porém necessária refatoração. Será quando apresentaremos, também, a nossa segunda abordagem para o Unit Of Work Pattern.
+> Este é um resumo dos principais Commits realizados no Upgrade do projeto para a Versão 1.1.0.  No README do Projeto estarão resumidas as funcionalidades implementadas e as alterações e correções de bugs.
 
-- Um ponto muito interessante que abordaremos também é como lidar com a falta da tradicional Stratup Class, removida com o conceito de Minimal API. Recriaremos a mesma e adaptaremos a nossa Program CS.
-
-- Também enriqueceremos nossa API com a utilização de ProducesResponseTypes para indicar o modelo que passarmos e o tipo de StatusCode que esperamos receber.Essa abordagem é importante demais para a perfeita documentação da nossa API, que faremos com o uso do Consagrado Swagger.
-
-> _IMPORTANTE:_ O Curso tem como motivação o Caso de Uso de Voo e seus Passageiros com foco no Unit of Work Pattern, mas passaremos por diversas Features importantes do Asp.Net Core, assim como veremos algumas prática necessárias para o Design de Software, como o uso dos SOLID Principles, Clean Code e de outros Patterns e boas prática para o desenvolvimento Orientado a Objetos. 
+> _IMPORTANTE:_ Apenas o Backend foi modificado e testado com o Swagger. 
 
 Torcemos para que gostem!
 
