@@ -10,12 +10,12 @@ namespace Bookstore.Infra.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column<string>(type: "varchar(80)", nullable: false),
+                    Name = table.Column<string>(type: "varchar(80)", maxLength: 80, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Img = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Category = table.Column<string>(type: "varchar(80)", nullable: true),
+                    Img = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
