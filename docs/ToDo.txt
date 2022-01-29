@@ -46,4 +46,6 @@ ToDo:
 	11. Upload do Arquivo de Imagem do Product;
 		10.a. Fazer isso também no Swagger;
 		
+	12. Atualizar o README com imagens; ( Ok ) 
+		
 		
