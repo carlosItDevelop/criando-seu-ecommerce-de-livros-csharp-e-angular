@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-
 namespace Bookstore.Domain.Abstractions.DomainInterfaces
 {
     public interface IUnitOfWork

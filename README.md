@@ -62,22 +62,118 @@
     </Project>
 ```
 
-- Created IGenericRepository in Domain/Abstractions/Base
-- GenericRepository (abstract class) created succeed
-- IDisposable implemented in IGenericRepository and IRepositoryProducts created;
-- IUnitOfWork created in Domain and Injetable IRepositoryProducts, IRepositoryProducts implemented IUnitOfWork
-- RepositoryProducts created with IUnitOfWork;
+> O Ropository (generic) e o UnitOfWork Patterns foram criados com suas __Abstrações e Classes Concretas__. Abaixo o código:
+
+### GenericRepository - Abstração em Domain Layer
+
+```CSharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
+    using System.Threading.Tasks;
+
+    namespace Bookstore.Domain.Abstractions.Repository.Base
+    {
+        public interface IGenericRepository<T,Key> : IDisposable where T : class
+        {
+            Task<T> GetById(Key id);
+            Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> predicate = null);
+            Task Add(T obj);
+            Task Update(T obj);
+            Task Delete(T obj);
+        }
+    }
+```
+
+### GenericRepository - Implementação em Infra/Data Layer
+
+```CSharp
+    using Bookstore.Domain.Abstractions.Repository.Base;
+    using Bookstore.Infra.Data.Orm;
+    using Microsoft.EntityFrameworkCore;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Threading.Tasks;
+
+    namespace Bookstore.Infra.Repository.Base
+    {
+        public abstract class GenericRepository<T, Key> : IGenericRepository<T, Key> where T : class, new()
+        {
+            protected ApplicationDbContext _context;
+            public GenericRepository(ApplicationDbContext context) => _context = context;
+
+            public virtual async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> predicate = null)
+            {
+                if (predicate == null) return await _context.Set<T>().AsNoTracking().ToListAsync();
+            
+                return await _context.Set<T>().AsNoTracking().Where(predicate).ToListAsync();
+            }
+            public virtual async Task<T> GetById(Key id)
+            {
+                return await _context.Set<T>().FindAsync(id);
+            }
+            public virtual async Task Add(T obj)
+            {
+                _context.Set<T>().Add(obj);
+                await Task.CompletedTask;
+            }
+            public virtual async Task Update(T obj)
+            {
+                _context.Set<T>().Update(obj);
+                await Task.CompletedTask;
+            }
+            public virtual async Task Delete(T obj)
+            {
+                _context.Set<T>().Remove(obj);
+                await Task.CompletedTask;
+            }
+            public void Dispose()
+            {
+                _ = (_context?.DisposeAsync());
+            }
+        }
+    }
+
+```
+
+### UnitOfWork - Abstração em Domain Layer
+
+```CSharp
+    using System.Threading.Tasks;
+    namespace Bookstore.Domain.Abstractions.DomainInterfaces
+    {
+        public interface IUnitOfWork
+        {
+            Task<bool> Commit();
+            Task Rollback();
+        }
+    }
+```
+
+### UnitOfWork - Implementação em Domain Layer too, in IRepositoryProducts
+
+```CSharp
+    using Bookstore.Domain.Abstractions.DomainInterfaces;
+    using Bookstore.Domain.Abstractions.Repository.Base;
+    using Bookstore.Domain.Entities;
+    namespace Bookstore.Domain.Abstractions.Repository
+    {
+        public interface IRepositoryProducts : IUnitOfWork, IGenericRepository<Product, int>
+        {
+        }
+    }
+```
+
 - DI <IRepositoryProducts, RepositoryProducts> in Startup Scoped Life Cicle <= Inversion Of Control;
 - Repository and Unit of Work Patterns implemented in PostProduct and Rollback implemented in catch of the Try block;
 - Use Repository Pattern in TodoController/GetTodoItems, GetById implemented in TodoController/GetProduct
 - Override GetById in RepositoryProducts (id => string) <> GenericRepository;
-- Renamed TodoDbContext to ApplicationDbContext;
 - Add Attributes ProducesResponseType(typeof(Product), StatusCodes.Status201Created and StatusCodes.Status400BadRequest;
-- TodoProduct renamed to Products;
 - Add Server=(localdb)\\mssqllocaldb in appsettings global and developer
 - Change UseInMemoryDatabase to options.UseSqlServer and AddPolicy (Cors) Development and Production equals;
 - SeedData Class with Extension Method Initializer created and Program.cs;
-- Install AutoMapper 11.0.0 and AutoMapper<Product, ProductDTO>().ReverseMap() created;
 - Registered services.AddAutoMapper(typeof(AutoMapperConfig)) in Startup Class;
 - Mapper.Map<>() Product/ProductDTO > Reverse Implemented in ProductController;
 - Configured and registered service AddApiConfig() and Install Swagger, SwaggerGen and SwaggerUI v.5.6.3;
@@ -90,20 +186,14 @@
 - v1 with GetAll only, v2 with GetAll and GetById and v3 with all Methods;
 - v1 marked as obsolete (Deprecated);
 - launchSettings changes with "launchUrl": "swagger" and Change namespaces of files configurations from Swagger;
-- Service and Configure Swagger Extensions segregation;
-- Change Route v1, v2 and v3 (Remove empty route);
 - ProductMap created in Infra/Mappings;
 - ApplyConfiguration and SetColumnType in OnModelCreating;
-- Remove and Re-Created Database and Migration;
 
 ---
 
 > Este é um resumo dos principais Commits realizados no Upgrade do projeto para a Versão 1.1.0.  No README do Projeto estarão resumidas as funcionalidades implementadas e as alterações e correções de bugs.
 
 > _IMPORTANTE:_ Apenas o Backend foi modificado e testado com o Swagger. 
-
-Torcemos para que gostem!
-
 
 ## Reporting security issues and bugs
 
@@ -115,15 +205,11 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 ---
 
-
 > ### Versão 2 da API com GetById e GetAll com Repository Pattern e UnitOfWork Pattern implementados
-
 
 
 ![Projeto DIO API e-Commerce com Angular e CSharp-v2 -  Versionado](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v2.png "API Versionada - V2")
 
-
 > ### Versão 3 da API com CRUD completo e todos os Patterns implementados
-
 
 ![Projeto DIO API e-Commerce com Angular e CSharp-v3 - Versionado](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v3.png "API Versionada - V3, com CRUD completo")
