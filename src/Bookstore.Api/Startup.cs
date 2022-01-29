@@ -41,9 +41,7 @@ namespace APIBookstore.Api
                 options.AddPolicy("Development", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
                 options.AddPolicy("Production", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-
-                //options.AddPolicy("Production", builder => builder
-                //            .WithMethods("GET").WithOrigins("https://cooperchip.com.br")
+                //options.AddPolicy("Production", builder => builder.WithMethods("GET").WithOrigins("https://cooperchip.com.br")
                 //            .SetIsOriginAllowedToAllowWildcardSubdomains().AllowAnyHeader());
 
             });
