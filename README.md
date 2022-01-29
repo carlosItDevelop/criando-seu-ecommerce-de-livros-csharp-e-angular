@@ -166,13 +166,15 @@
     }
 ```
 
+> Rotinas de __Atualização__ (HttpPut) e __Exclusão__ (HttpDelete) foram adicionas ao projetos, pois as mesmas não constavam no __projeto original__.
+
+- Override GetById in RepositoryProducts (id => string) <> GenericRepository;
+
+> Trocamos nosso __"Acesso a Dados"__, usando o MS SQLServer localDb no lugar do acesso com UseInMemomy;
+
 - DI <IRepositoryProducts, RepositoryProducts> in Startup Scoped Life Cicle <= Inversion Of Control;
 - Repository and Unit of Work Patterns implemented in PostProduct and Rollback implemented in catch of the Try block;
-- Use Repository Pattern in TodoController/GetTodoItems, GetById implemented in TodoController/GetProduct
-- Override GetById in RepositoryProducts (id => string) <> GenericRepository;
 - Add Attributes ProducesResponseType(typeof(Product), StatusCodes.Status201Created and StatusCodes.Status400BadRequest;
-- Add Server=(localdb)\\mssqllocaldb in appsettings global and developer
-- Change UseInMemoryDatabase to options.UseSqlServer and AddPolicy (Cors) Development and Production equals;
 - SeedData Class with Extension Method Initializer created and Program.cs;
 - Registered services.AddAutoMapper(typeof(AutoMapperConfig)) in Startup Class;
 - Mapper.Map<>() Product/ProductDTO > Reverse Implemented in ProductController;
