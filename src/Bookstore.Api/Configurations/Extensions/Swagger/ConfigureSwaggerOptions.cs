@@ -25,7 +25,7 @@ namespace APIBookstore.Api.Configurations.Extensions.Swagger
         {
             var info = new OpenApiInfo()
             {
-                Title = "API - Cooperchip, Digital Innovation One",
+                Title = "API Cooperchip - Digital Innovation One",
                 Version = description.ApiVersion.ToString(),
                 Description = "Esta API faz parte do curso Criando seu e-commerce de livros em C# e Angular.",
                 Contact = new OpenApiContact()

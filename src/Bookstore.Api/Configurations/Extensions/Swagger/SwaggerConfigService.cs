@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 namespace APIBookstore.Api.Configurations.Extensions.Swagger
 {
-    public static class SwaggerConfigVersioning
+    public static class SwaggerConfigService
     {
         public static IServiceCollection AddSwaggerConfig(this IServiceCollection services)
         {
@@ -42,20 +40,7 @@ namespace APIBookstore.Api.Configurations.Extensions.Swagger
             return services;
         }
 
-        public static IApplicationBuilder UseSwaggerConfig(this IApplicationBuilder app, IApiVersionDescriptionProvider provider)
-        {
 
-            app.UseSwagger();
-            app.UseSwaggerUI(
-                options =>
-                {
-                    foreach (var description in provider.ApiVersionDescriptions)
-                    {
-                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
-                    }
-                });
-            return app;
-        }
     }
 
 
