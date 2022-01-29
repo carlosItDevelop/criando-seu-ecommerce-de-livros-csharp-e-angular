@@ -39,7 +39,7 @@ namespace Bookstore.Infra.Repository.Base
 
         public virtual async Task Update(T obj)
         {
-            _context.Set<T>().Remove(obj);
+            _context.Set<T>().Update(obj);
             await Task.CompletedTask;
         }
 

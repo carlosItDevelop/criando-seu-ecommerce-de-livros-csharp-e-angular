@@ -76,30 +76,27 @@ namespace APIBookstore.Api.v3.Controllers
 
         }
 
-        //[HttpPut("atualizar-produto/{id}")]
-        //[ProducesResponseType(typeof(Product), StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //public async Task<IActionResult> PutProduct(int id, ProductDTO productDTO)
-        //{
-        //    if (id.ToString() != productDTO.Id) return BadRequest("Ids não correspondentes.");
+        [HttpPut("atualizar-produto/{id:int}")]
+        public async Task<IActionResult> PutProduct(int id, ProductDTO productDTO)
+        {
+            if (id.ToString() != productDTO.Id) return BadRequest("Ids não correspondentes.");
 
-        //    var product = await _repoProducts.GetById(id);
-        //    if(product == null) return NotFound();
+            if(!ModelState.IsValid) return BadRequest("ModelState está inválida");
 
-        //    try
-        //    {
-        //        await _repoProducts.Update(product);
-        //        await _repoProducts.Commit();
-                
-        //        return NoContent();
+            try
+            {
+                await _repoProducts.Update(_mapper.Map<Product>(productDTO));
+                await _repoProducts.Commit();
 
-        //    }
-        //    catch (System.Exception)
-        //    {
-        //        await _repoProducts.Rollback();
-        //        return BadRequest("Erro ao tentar Atualizar Produto.");
-        //    }            
-        //}
+                return NoContent();
+
+            }
+            catch (System.Exception)
+            {
+                await _repoProducts.Rollback();
+                return BadRequest("Erro ao tentar Atualizar Produto.");
+            }
+        }
 
         [HttpDelete("excluir-produto/{id}")]
         [ProducesResponseType(typeof(ProductDTO), StatusCodes.Status204NoContent)]
