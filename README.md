@@ -39,6 +39,29 @@
 
 ![Projeto DIO API e-Commerce com Angular e CSharp-v1-obsoleta - Versionado](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v1-obsoleta.png "API Versionada - V1 [Obsoleta]")
 
+- Abaixo os Packages necessários para configuração do versionamento e documentação do swagger:
+
+```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+
+      <PropertyGroup><TargetFramework>net5.0</TargetFramework></PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />   
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+      </ItemGroup>
+
+      <ItemGroup>
+        <ProjectReference Include="..\Bookstore.Domain\Bookstore.Domain.csproj" />
+        <ProjectReference Include="..\Bookstore.Infra\Bookstore.Infra.csproj" />
+      </ItemGroup>
+    </Project>
+```
+
 - Created IGenericRepository in Domain/Abstractions/Base
 - GenericRepository (abstract class) created succeed
 - IDisposable implemented in IGenericRepository and IRepositoryProducts created;
