@@ -34,15 +34,17 @@ ToDo:
 	7. Versionar a API; ( Ok )
 		7.a. Manter na v.1.0 a Controller com o DbContext e manter tudo que puder do projeto original;
 		7.b. ProductController modificada com uso do Repository e IoW Patterns mais o AutoMapper e DTOs; ( Ok )
-	
-	8. Instalar, Configurar e Registrar o FluentValidation;
-		8.a. Criar o ProductValidation e o DomainService;
-		8.b. Validar com BaseService e Notification Pattern;
 
-	9. Manter o modelo original na v1 do projeto (com DbContext) - Apenas GetAll e GetById;
+	8. Implementar Put e Delete; ( Ok )
 
-	10. Implementar Put e Delete;
 	
+	9. Instalar, Configurar e Registrar o FluentValidation;
+		9.a. Criar o ProductValidation e o DomainService;
+		9.b. Validar com BaseService e Notification Pattern;
+
+	10. Manter o modelo original na v1 do projeto (com DbContext) - Apenas GetAll e GetById;
+
+
 	11. Upload do Arquivo de Imagem do Product;
 		10.a. Fazer isso também no Swagger;
 		

@@ -76,6 +76,15 @@ namespace APIBookstore.Api.v3.Controllers
 
         }
 
+
+        /// <summary>
+        /// Aqui poderíamos retornar 204 (NoContent), mas para 
+        /// efeito de demonstração, utilizei o 200 para exibir
+        /// o novo conteúdo já alterado!
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="productDTO"></param>
+        /// <returns></returns>
         [HttpPut("atualizar-produto/{id:int}")]
         [ProducesResponseType(typeof(ProductDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
