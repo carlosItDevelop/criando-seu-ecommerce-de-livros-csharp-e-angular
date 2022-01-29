@@ -1,4 +1,24 @@
 
+DIO - Projeto entregue:
+
+Pesquisas / Demanda
+-------------------
+- Achar o exemplo que mostra Upload na API c/ Swagger;
+- 
+
+======================================================
+Analisar possibilidade...
+
+	- Impacto Radical no Frontend:
+	------------------------------
+	x. Separar Category de Product;
+	x. Mudar tipo do Id, de string para Guid;
+	x. Implementar a EntityBase;
+	x. Implementar a Auditoria de registro;
+	---------------------------------------
+======================================================
+
+ToDo:
 
 	1. Mudar o Banco de Dados de InMomore para localDb; ( Ok )
 	2. Implementar a semente de Dados Iniciais, através da Program.cs com Extension Method; ( Ok )
@@ -14,9 +34,16 @@
 	7. Versionar a API; ( Ok )
 		7.a. Manter na v.1.0 a Controller com o DbContext e manter tudo que puder do projeto original;
 		7.b. ProductController modificada com uso do Repository e IoW Patterns mais o AutoMapper e DTOs; ( Ok )
+	
+	8. Instalar, Configurar e Registrar o FluentValidation;
+		8.a. Criar o ProductValidation e o DomainService;
+		8.b. Validar com BaseService e Notification Pattern;
+
+	9. Manter o modelo original na v1 do projeto (com DbContext) - Apenas GetAll e GetById;
+
+	10. Implementar Put e Delete;
+	
+	11. Upload do Arquivo de Imagem do Product;
+		10.a. Fazer isso também no Swagger;
 		
 		
-		
-	X. Instalar, Configurar e Registrar o FluentValidation;
-		6.a. Criar o ProductValidation e o DomainService;
-		6.b. Validar com BaseService e Notification Pattern;

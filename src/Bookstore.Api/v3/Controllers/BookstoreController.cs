@@ -76,5 +76,53 @@ namespace APIBookstore.Api.v3.Controllers
 
         }
 
+        [HttpPut("atualizar-produto/{id}")]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> PutProduct(int? id)
+        {
+            if (id == null) return BadRequest("Id inválido.");
+
+            var product = await _repoProducts.GetById(id.Value);
+
+            if(product == null) return NotFound();
+
+            try
+            {
+                await _repoProducts.Update(product);
+                await _repoProducts.Commit();
+                return CreatedAtAction(nameof(PutProduct), product);
+            }
+            catch (System.Exception)
+            {
+                await _repoProducts.Rollback();
+                return BadRequest("Erro ao tentar Atualizar Produto.");
+            }            
+        }
+
+        [HttpDelete("excluir-produto/{id}")]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteProduct(int? id)
+        {
+            if (id == null) return BadRequest("Id inválido.");
+
+            var product = await _repoProducts.GetById(id.Value);
+
+            if (product == null) return NotFound();
+
+            try
+            {
+                await _repoProducts.Delete(product);
+                await _repoProducts.Commit();
+                return NoContent();
+            }
+            catch (System.Exception)
+            {
+                await _repoProducts.Rollback();
+                return BadRequest("Erro ao tentar Excluir Produto.");
+            }
+        }
+
     }
 }
