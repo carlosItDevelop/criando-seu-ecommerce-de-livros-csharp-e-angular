@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace APIBookstore.Api
 {
@@ -35,8 +37,6 @@ namespace APIBookstore.Api
 
             services.AddApiConfig();
 
-            services.AddScoped<IRepositoryProducts, RepositoryProducts>();
-
             services.AddCors(options =>
             {
                 options.AddPolicy("Development", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -47,8 +47,9 @@ namespace APIBookstore.Api
 
             });
 
+            services.AddScoped<IRepositoryProducts, RepositoryProducts>();
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerConfig();
-
 
         }
 
