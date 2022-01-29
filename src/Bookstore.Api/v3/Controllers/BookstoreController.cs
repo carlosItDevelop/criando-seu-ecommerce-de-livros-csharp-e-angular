@@ -77,19 +77,22 @@ namespace APIBookstore.Api.v3.Controllers
         }
 
         [HttpPut("atualizar-produto/{id:int}")]
+        [ProducesResponseType(typeof(ProductDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> PutProduct(int id, ProductDTO productDTO)
         {
             if (id.ToString() != productDTO.Id) return BadRequest("Ids não correspondentes.");
 
             if(!ModelState.IsValid) return BadRequest("ModelState está inválida");
 
+            var product = _mapper.Map<Product>(productDTO);
+
             try
             {
-                await _repoProducts.Update(_mapper.Map<Product>(productDTO));
+                await _repoProducts.Update(product);
                 await _repoProducts.Commit();
 
-                return NoContent();
-
+                return Ok(product);
             }
             catch (System.Exception)
             {
