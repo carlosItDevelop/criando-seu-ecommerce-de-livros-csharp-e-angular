@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions
+namespace APIBookstore.Api.Configurations.Extensions
 {
     public static class ApiConfig
     {
@@ -10,7 +10,7 @@ namespace Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions
             services.AddApiVersioning(options =>
             {
                 options.AssumeDefaultVersionWhenUnspecified = true;
-                options.DefaultApiVersion = new ApiVersion(2, 0);
+                options.DefaultApiVersion = new ApiVersion(3, 0);
                 options.ReportApiVersions = true;
             });
 

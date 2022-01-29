@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Linq;
 
-namespace Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions
+namespace APIBookstore.Api.Configurations.Extensions.Swagger
 {
     public class SwaggerDefaultValues : IOperationFilter
     {

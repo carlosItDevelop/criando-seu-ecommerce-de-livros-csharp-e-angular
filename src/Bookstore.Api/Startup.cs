@@ -1,8 +1,9 @@
 using APIBookstore.Api.Configurations.AutoMapper;
+using APIBookstore.Api.Configurations.Extensions;
+using APIBookstore.Api.Configurations.Extensions.Swagger;
 using Bookstore.Domain.Abstractions.Repository;
 using Bookstore.Infra.Data.Orm;
 using Bookstore.Infra.Repository.Entities;
-using Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -26,16 +27,12 @@ namespace APIBookstore.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
             // Duas formas de Registrar, estando no mesmo projeto da Startup Class
             //services.AddAutoMapper(typeof(Startup), typeof(AutoMapperConfig));
             services.AddAutoMapper(typeof(AutoMapperConfig));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddApiConfig();
 
             services.AddCors(options =>
             {
@@ -47,16 +44,19 @@ namespace APIBookstore.Api
 
             });
 
+            #region: My Extensions Methods
+            services.AddApiConfig();
+            services.AddSwaggerConfig();
             services.AddScoped<IRepositoryProducts, RepositoryProducts>();
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-            services.AddSwaggerConfig();
+            #endregion
+
+            services.AddControllers();
 
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            app.UseSwaggerConfig(provider);
-
             if (env.IsDevelopment())
             {
                 app.UseCors("Development");
@@ -67,6 +67,7 @@ namespace APIBookstore.Api
                 app.UseCors("Development"); // Usar apenas nas demos => Configuração Ideal: Production
                 app.UseHsts();
             }
+            app.UseSwaggerConfig(provider);
 
             app.UseHttpsRedirection();
 

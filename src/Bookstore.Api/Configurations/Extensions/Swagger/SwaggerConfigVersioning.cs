@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions
+namespace APIBookstore.Api.Configurations.Extensions.Swagger
 {
     public static class SwaggerConfigVersioning
     {

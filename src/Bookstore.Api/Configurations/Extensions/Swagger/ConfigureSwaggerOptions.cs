@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 
-namespace Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions
+namespace APIBookstore.Api.Configurations.Extensions.Swagger
 {
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
@@ -28,16 +28,17 @@ namespace Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions
                 Title = "API - Cooperchip, Digital Innovation One",
                 Version = description.ApiVersion.ToString(),
                 Description = "Esta API faz parte do curso Criando seu e-commerce de livros em C# e Angular.",
-                Contact = new OpenApiContact() 
-                { 
-                    Name = "Carlos A Santos", 
+                Contact = new OpenApiContact()
+                {
+                    Name = "Carlos A Santos",
                     Email = "contato.cooperchip@gmail.com",
                     Url = new Uri("https://cooperchip.com.br")
                 },
                 TermsOfService = new Uri("https://opensource.org/licenses/MIT"),
-                License = new OpenApiLicense() 
-                { 
-                    Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") 
+                License = new OpenApiLicense()
+                {
+                    Name = "MIT",
+                    Url = new Uri("https://opensource.org/licenses/MIT")
                 }
             };
 
