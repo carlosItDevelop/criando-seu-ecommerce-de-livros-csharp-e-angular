@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace APIBookstore.Api.v2.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/bookstore")]
     public class BookstoreController : MainController
     {
         private readonly IRepositoryProducts _repoProducts;
