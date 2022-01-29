@@ -72,4 +72,8 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 ---
 
-![Projeto DIO API e-Commerce com Angular e CSharp-v1-obsoleta](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v1-obsoleta.png "API Versionada - V1")
+![Projeto DIO API e-Commerce com Angular e CSharp-v1-obsoleta](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v1-obsoleta.png "API Versionada - V1 [Obsoleta]")
+
+---
+
+![Projeto DIO API e-Commerce com Angular e CSharp-v2](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v2.png "API Versionada - V2")
