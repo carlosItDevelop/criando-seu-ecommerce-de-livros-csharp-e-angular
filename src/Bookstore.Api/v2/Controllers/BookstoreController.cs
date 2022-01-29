@@ -48,35 +48,5 @@ namespace APIBookstore.Api.v2.Controllers
             return todoItem;
         }
 
-
-        [HttpPost("adicionar-produto")]
-        [ProducesResponseType(typeof(Product), StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Product>> PostProduct(ProductDTO productDto)
-        {
-            //_context.TodoProducts.Add(product);
-            //await _context.SaveChangesAsync();
-
-            if (!ModelState.IsValid) return BadRequest("A Model está inválida!");
-
-            try
-            {
-                await _repoProducts.Add(_mapper.Map<Product>(productDto));
-                await _repoProducts.Commit();
-
-                return CreatedAtAction(nameof(GetProdut), new { id = productDto.Id }, productDto);
-            }
-            catch (System.Exception)
-            {
-                /* faça algo... 
-                 * avise a alguém 
-                 * ou não faça nada...
-                 */
-                await _repoProducts.Rollback();
-                return BadRequest("Erro ao tentar adicionar Produto");
-            }
-
-        }
-
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace APIBookstore.Api.v1.Controllers
 {
-    [ApiVersion("1.0")]
+    [ApiVersion("1.0", Deprecated = true)]
     [Route("api/v{version:apiVersion}/bookstore")]
     public class BookstoreController : MainController
     {
@@ -30,52 +30,6 @@ namespace APIBookstore.Api.v1.Controllers
         {
             //return await _context.TodoProducts.ToListAsync();
             return _mapper.Map<IEnumerable<ProductDTO>>(await _repoProducts.GetAll());
-        }
-
-
-        // GET: api/bookstore/5
-        [HttpGet("obter-produto/{id}")]
-        public async Task<ActionResult<ProductDTO>> GetProdut(int id)
-        {
-            //var todoItem = await _context.TodoProducts.FindAsync(id.ToString());
-            var todoItem = _mapper.Map<ProductDTO>(await _repoProducts.GetById(id));
-
-            if (todoItem == null)
-            {
-                return NotFound();
-            }
-
-            return todoItem;
-        }
-
-
-        [HttpPost("adicionar-produto")]
-        [ProducesResponseType(typeof(Product), StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Product>> PostProduct(ProductDTO productDto)
-        {
-            //_context.TodoProducts.Add(product);
-            //await _context.SaveChangesAsync();
-
-            if (!ModelState.IsValid) return BadRequest("A Model está inválida!");
-
-            try
-            {
-                await _repoProducts.Add(_mapper.Map<Product>(productDto));
-                await _repoProducts.Commit();
-
-                return CreatedAtAction(nameof(GetProdut), new { id = productDto.Id }, productDto);
-            }
-            catch (System.Exception)
-            {
-                /* faça algo... 
-                 * avise a alguém 
-                 * ou não faça nada...
-                 */
-                await _repoProducts.Rollback();
-                return BadRequest("Erro ao tentar adicionar Produto");
-            }
-
         }
 
     }
