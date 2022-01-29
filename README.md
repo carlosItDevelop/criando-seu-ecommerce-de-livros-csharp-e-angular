@@ -2,7 +2,7 @@
 
 ---
 
-#### Apresentaremos uma API de uma pequena Loja Virtual básica em C#, consumida com Angular no Frontend.
+### Apresentaremos uma API de uma Loja Virtual básica em C#, consumida com Angular.
 
 > Solução em Asp.Net Net Core 5, onde demonstraremos algumas features interessantes, como: 
 
@@ -12,7 +12,7 @@
 
 > Alguns pontos críticos foram identificados e corrigidos em seguida. A saber:
 
-- A primeira alteração significativa foi a **__Migração do Projeto do .Net 3.1 para o ,Net 5.0__**. Com isso gravamos um arquivo de controle de SDK na pasta da Solution - global.joson. Segue o código fonte:
+- A primeira alteração significativa foi a **__Migração do Projeto do .Net 3.1 para o .Net 5.0__**. Com isso gravamos um arquivo de controle de SDK na pasta da Solution - global.json. Segue o código fonte:
 
 ```json
     {
@@ -28,11 +28,11 @@
 
 - Na nossa API layer criamos a DTO para transporte de dados, deixando nosso modelo __Product__ Clean na Domain layer, pois trabalharemos com __Domínio Rico__ e essa abordagem nos proporciona um bom design, enquanto tratamos das validações de modelos na nossa DTO.
 
-- Configurei o CORS em services e configure na Startup para que o Frontend não tenha restrições de políticas de acesso.
+- Configurei o __CORS__ em services e configure na Startup para que o Frontend não tenha restrições de políticas de acesso.
 
-- Nossa API foi versionada e adicionamos todas as configurações de Versioning do Asp.Net Core e a documentação do Swagger.
+- Nossa __API__ foi __versionada__ e adicionamos todas as configurações de __Versioning do Asp.Net Core__ e a documentação do __Swagger__.
 
-- Antes de continuar vamos dar uma olhada no print da V1 da nossa API, que está __Obsoleta__:
+- Antes de continuar vamos dar uma olhada no print da __V1 da nossa API__, que está __Obsoleta__:
 
 > ### Versão 1 da API com GetById e GetAll, utilizando o DbContext **__acoplado__** na Controller
 
@@ -62,7 +62,7 @@
     </Project>
 ```
 
-> O Ropository (generic) e o UnitOfWork Patterns foram criados com suas __Abstrações e Classes Concretas__. Abaixo o código:
+> O __Ropository (generic)__ e o __UnitOfWork Patterns__ foram criados com suas __Abstrações e Classes Concretas__. Abaixo o código:
 
 ### GenericRepository - Abstração em Domain Layer
 
@@ -152,7 +152,7 @@
     }
 ```
 
-### UnitOfWork - Implementação em Domain Layer too, in IRepositoryProducts
+### UnitOfWork - Composição com IRepositoryProducts em Domain Layer too.
 
 ```CSharp
     using Bookstore.Domain.Abstractions.DomainInterfaces;
