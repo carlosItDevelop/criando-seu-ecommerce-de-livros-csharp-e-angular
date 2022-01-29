@@ -5,6 +5,7 @@ using Bookstore.Infra.Repository.Entities;
 using Cooperchip.DiretoAoPonto.UoW.Api.Configurations.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,11 +47,14 @@ namespace APIBookstore.Api
 
             });
 
+            services.AddSwaggerConfig();
+
 
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
+            app.UseSwaggerConfig(provider);
 
             if (env.IsDevelopment())
             {
