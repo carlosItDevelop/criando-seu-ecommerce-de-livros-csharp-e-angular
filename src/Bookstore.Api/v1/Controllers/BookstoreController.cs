@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace APIBookstore.Api.v1.Controllers
 {
-    [ApiVersion("1.0", Deprecated = true )]
+    [ApiVersion("1.0", Deprecated = true)]
     [Route("api/v{version:apiVersion}/bookstore")]
     public class BookstoreController : MainController
     {
@@ -24,7 +24,6 @@ namespace APIBookstore.Api.v1.Controllers
             _mapper = mapper;
         }
 
-        [Route("")]
         [HttpGet("obter-todos")]
         public async Task<IEnumerable<ProductDTO>> GetTodoItems()
         {

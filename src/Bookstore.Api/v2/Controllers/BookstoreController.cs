@@ -24,7 +24,6 @@ namespace APIBookstore.Api.v2.Controllers
             _mapper = mapper;
         }
 
-        [Route("")]
         [HttpGet("obter-todos")]
         public async Task<IEnumerable<ProductDTO>> GetTodoItems()
         {
@@ -33,7 +32,6 @@ namespace APIBookstore.Api.v2.Controllers
         }
 
 
-        // GET: api/bookstore/5
         [HttpGet("obter-produto/{id}")]
         public async Task<ActionResult<ProductDTO>> GetProdut(int id)
         {
