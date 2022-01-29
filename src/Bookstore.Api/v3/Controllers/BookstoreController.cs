@@ -76,44 +76,43 @@ namespace APIBookstore.Api.v3.Controllers
 
         }
 
-        [HttpPut("atualizar-produto/{id}")]
-        [ProducesResponseType(typeof(Product), StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> PutProduct(int? id)
-        {
-            if (id == null) return BadRequest("Id inválido.");
+        //[HttpPut("atualizar-produto/{id}")]
+        //[ProducesResponseType(typeof(Product), StatusCodes.Status204NoContent)]
+        //[ProducesResponseType(StatusCodes.Status404NotFound)]
+        //public async Task<IActionResult> PutProduct(int id, ProductDTO productDTO)
+        //{
+        //    if (id.ToString() != productDTO.Id) return BadRequest("Ids não correspondentes.");
 
-            var product = await _repoProducts.GetById(id.Value);
+        //    var product = await _repoProducts.GetById(id);
+        //    if(product == null) return NotFound();
 
-            if(product == null) return NotFound();
+        //    try
+        //    {
+        //        await _repoProducts.Update(product);
+        //        await _repoProducts.Commit();
+                
+        //        return NoContent();
 
-            try
-            {
-                await _repoProducts.Update(product);
-                await _repoProducts.Commit();
-                return CreatedAtAction(nameof(PutProduct), product);
-            }
-            catch (System.Exception)
-            {
-                await _repoProducts.Rollback();
-                return BadRequest("Erro ao tentar Atualizar Produto.");
-            }            
-        }
+        //    }
+        //    catch (System.Exception)
+        //    {
+        //        await _repoProducts.Rollback();
+        //        return BadRequest("Erro ao tentar Atualizar Produto.");
+        //    }            
+        //}
 
         [HttpDelete("excluir-produto/{id}")]
-        [ProducesResponseType(typeof(Product), StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ProductDTO), StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> DeleteProduct(int? id)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
-            if (id == null) return BadRequest("Id inválido.");
+            var productDTO = await _repoProducts.GetById(id);
 
-            var product = await _repoProducts.GetById(id.Value);
-
-            if (product == null) return NotFound();
+            if (productDTO == null) return NotFound();
 
             try
             {
-                await _repoProducts.Delete(product);
+                await _repoProducts.Delete(_mapper.Map<Product>(productDTO));
                 await _repoProducts.Commit();
                 return NoContent();
             }
