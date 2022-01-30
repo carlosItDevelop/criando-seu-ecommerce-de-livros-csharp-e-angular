@@ -251,7 +251,7 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 ### Novas demandas:
 
-	- :black_square_button: Instalar, Configurar e Registrar o FluentValidation;
+	:black_square_button: Instalar, Configurar e Registrar o FluentValidation;
 		- [ ] Criar o ProductValidation e o DomainService;
 		- [ ] Validar com BaseService e Notification Pattern;
 
