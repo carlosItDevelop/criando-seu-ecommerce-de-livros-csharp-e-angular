@@ -166,9 +166,6 @@
     }
 ```
 
-<iframe src="https://giphy.com/embed/E5a0IFtOOCGdjjZfO3" width="960" height="540" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/E5a0IFtOOCGdjjZfO3">via GIPHY</a></p>
-
-
 > Rotinas de __Atualização__ (HttpPut) e __Exclusão__ (HttpDelete) foram adicionas ao projetos, pois as mesmas não constavam no __projeto original__.
 
 > Override GetById in RepositoryProducts (id => string) <> GenericRepository;
@@ -177,7 +174,8 @@
 
 > A API está totalmente funcional e disponível para testes através do Swagger:
 
-![Projeto DIO API e-Commerce com Angular e CSharp-v3 - Versionado](https://media.giphy.com/media/E5a0IFtOOCGdjjZfO3/giphy.gif "API Versionada - V3, com CRUD completo")
+<img src="https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/DIO-v3-animada.gif" height="475" >'
+
 
 - DI <IRepositoryProducts, RepositoryProducts> in Startup Scoped Life Cicle <= Inversion Of Control;
 - Repository and Unit of Work Patterns implemented in PostProduct and Rollback implemented in catch of the Try block;
