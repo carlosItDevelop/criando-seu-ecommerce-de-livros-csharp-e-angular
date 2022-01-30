@@ -166,6 +166,9 @@
     }
 ```
 
+<iframe src="https://giphy.com/embed/E5a0IFtOOCGdjjZfO3" width="960" height="540" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/E5a0IFtOOCGdjjZfO3">via GIPHY</a></p>
+
+
 > Rotinas de __Atualização__ (HttpPut) e __Exclusão__ (HttpDelete) foram adicionas ao projetos, pois as mesmas não constavam no __projeto original__.
 
 > Override GetById in RepositoryProducts (id => string) <> GenericRepository;
