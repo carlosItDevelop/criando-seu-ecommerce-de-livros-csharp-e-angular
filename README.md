@@ -257,3 +257,6 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 	-[ ] Upload do Arquivo de Imagem do Product;
 		-[ ] Fazer isso também no Swagger;
+
+    -[ ] Separar Category em uma nova Model;
+        -[ ] Criar e mapear o relacionamento entre Product e Category;
