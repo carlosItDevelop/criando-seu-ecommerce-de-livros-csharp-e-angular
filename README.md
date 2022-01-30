@@ -260,3 +260,5 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
     -[ ] Separar Category em uma nova Model;
         -[ ] Criar e mapear o relacionamento entre Product e Category;
+
+    :black_square_button: `:black_square_button:` | :white_check_mark: `:white_check_mark:`
