@@ -168,7 +168,7 @@
 
 > Rotinas de __Atualização__ (HttpPut) e __Exclusão__ (HttpDelete) foram adicionas ao projetos, pois as mesmas não constavam no __projeto original__.
 
-> Todos os métodos do nosso GenericRepository são __virtual__ async. Isso nos possibilita sobrecarregá-los quando necessário. Usamos essa abordagem para usar o __Polimorfismo__ quando demos override no método GetById em nosso RepositoryProduct, pois o projeto original seta o Id de product como __string__ e recebemos um __int__ na Action HttpGet => getById. Observe o código abaixo:
+> Todos os métodos do nosso GenericRepository são __virtual__ async. Isso nos possibilita sobrecarregá-los quando necessário. Usamos essa abordagem para usar o __Polimorfismo__ quando demos override no método GetById em nosso RepositoryProduct, pois o projeto original seta o Id de product como __string__ e recebemos um __int__ na Action HttpGet => GetById. Observe o código abaixo:
 
 ```Csharp
     using Bookstore.Domain.Abstractions.Repository;
@@ -203,7 +203,9 @@
 
 > Trocamos nosso __"Acesso a Dados"__, usando o MS SQLServer localDb no lugar do acesso com UseInMemomy;
 
+
 > A API está totalmente funcional e disponível para testes através do Swagger:
+
 
 <img src="https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/DIO-v3-animada.gif" height="475" >'
 
