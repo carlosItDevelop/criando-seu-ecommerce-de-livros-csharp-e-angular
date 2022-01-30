@@ -168,9 +168,13 @@
 
 > Rotinas de __Atualização__ (HttpPut) e __Exclusão__ (HttpDelete) foram adicionas ao projetos, pois as mesmas não constavam no __projeto original__.
 
-- Override GetById in RepositoryProducts (id => string) <> GenericRepository;
+> Override GetById in RepositoryProducts (id => string) <> GenericRepository;
 
 > Trocamos nosso __"Acesso a Dados"__, usando o MS SQLServer localDb no lugar do acesso com UseInMemomy;
+
+> A API está totalmente funcional e disponível para testes através do Swagger:
+
+![Projeto DIO API e-Commerce com Angular e CSharp-v3 - Versionado](https://media.giphy.com/media/E5a0IFtOOCGdjjZfO3/giphy.gif "API Versionada - V3, com CRUD completo")
 
 - DI <IRepositoryProducts, RepositoryProducts> in Startup Scoped Life Cicle <= Inversion Of Control;
 - Repository and Unit of Work Patterns implemented in PostProduct and Rollback implemented in catch of the Try block;
@@ -215,3 +219,6 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 > ### Versão 3 da API com CRUD completo e todos os Patterns implementados
 
 ![Projeto DIO API e-Commerce com Angular e CSharp-v3 - Versionado](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v3.png "API Versionada - V3, com CRUD completo")
+
+
+
