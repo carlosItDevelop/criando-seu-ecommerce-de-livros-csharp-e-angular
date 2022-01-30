@@ -249,5 +249,11 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 ![Projeto DIO API e-Commerce com Angular e CSharp-v3 - Versionado](https://github.com/carlosItDevelop/criando-seu-ecommerce-de-livros-csharp-e-angular/blob/main/imgs/api-v3.png "API Versionada - V3, com CRUD completo")
 
+### Novas demandas:
 
+	- [] Instalar, Configurar e Registrar o FluentValidation;
+		- [] Criar o ProductValidation e o DomainService;
+		- [] Validar com BaseService e Notification Pattern;
 
+	- [] Upload do Arquivo de Imagem do Product;
+		- [] Fazer isso também no Swagger;
