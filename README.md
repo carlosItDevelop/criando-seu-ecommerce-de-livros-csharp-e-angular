@@ -251,6 +251,7 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 ### Novas demandas:
 
+
 	-[ ] Instalar, Configurar e Registrar o FluentValidation;
 		-[ ] Criar o ProductValidation e o DomainService;
 		-[ ] Validar com BaseService e Notification Pattern;
