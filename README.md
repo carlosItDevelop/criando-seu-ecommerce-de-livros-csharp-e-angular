@@ -168,7 +168,38 @@
 
 > Rotinas de __Atualização__ (HttpPut) e __Exclusão__ (HttpDelete) foram adicionas ao projetos, pois as mesmas não constavam no __projeto original__.
 
-> Override GetById in RepositoryProducts (id => string) <> GenericRepository;
+> Todos os métodos do nosso GenericRepository são __virtual__ async. Isso nos possibilita sobrecarregá-los quando necessário. Usamos essa abordagem para usar o __Polimorfismo__ quando demos override no método GetById em nosso RepositoryProduct, pois o projeto original seta o Id de product como __string__ e recebemos um __int__ na Action HttpGet => getById. Observe o código abaixo:
+
+```Csharp
+    using Bookstore.Domain.Abstractions.Repository;
+    using Bookstore.Domain.Entities;
+    using Bookstore.Infra.Data.Orm;
+    using Bookstore.Infra.Repository.Base;
+    using System.Threading.Tasks;
+
+    namespace Bookstore.Infra.Repository.Entities
+    {
+        public class RepositoryProducts : GenericRepository<Product, int>, IRepositoryProducts
+        {
+            public RepositoryProducts(ApplicationDbContext ctx) : base(ctx) => _context = ctx;
+
+            public async Task<bool> Commit() 
+            {
+                return await _context.SaveChangesAsync() > 0;
+            }
+            public async Task Rollback()
+            {
+                /* To do any process... Call other implementation, etc */
+                await Task.CompletedTask;
+            }
+            public async override Task<Product> GetById(int id)
+            {
+                var idStr = id.ToString();
+                return await _context.Set<Product>().FindAsync(idStr);
+            }
+        }
+    }
+```
 
 > Trocamos nosso __"Acesso a Dados"__, usando o MS SQLServer localDb no lugar do acesso com UseInMemomy;
 
@@ -178,23 +209,18 @@
 
 
 - DI <IRepositoryProducts, RepositoryProducts> in Startup Scoped Life Cicle <= Inversion Of Control;
-- Repository and Unit of Work Patterns implemented in PostProduct and Rollback implemented in catch of the Try block;
 - Add Attributes ProducesResponseType(typeof(Product), StatusCodes.Status201Created and StatusCodes.Status400BadRequest;
 - SeedData Class with Extension Method Initializer created and Program.cs;
 - Registered services.AddAutoMapper(typeof(AutoMapperConfig)) in Startup Class;
 - Mapper.Map<>() Product/ProductDTO > Reverse Implemented in ProductController;
-- Configured and registered service AddApiConfig() and Install Swagger, SwaggerGen and SwaggerUI v.5.6.3;
 - ConfigureSwaggerOptions, Versioning and DefaultValues in Extensions Methods;
 - services.AddSwaggerConfig() and app.UseSwaggerConfig(provider) Extension Methods created;
 - services.AddTransient<IConfigureOptions<SwaggerGenOptions>, Configured;
 - Copy BookstoreController to v1, v2 and v3 and MainController created in Root/Controllers;
 - Versioned Controllers inherited from MainController and without ApiController Attributes;
 - ApiVersion and Router Changes in Controllers v1, v2 and v3;
-- v1 with GetAll only, v2 with GetAll and GetById and v3 with all Methods;
-- v1 marked as obsolete (Deprecated);
-- launchSettings changes with "launchUrl": "swagger" and Change namespaces of files configurations from Swagger;
-- ProductMap created in Infra/Mappings;
-- ApplyConfiguration and SetColumnType in OnModelCreating;
+- v1 with GetAll only, v2 with GetAll and GetById and v3 with all Methods and v1 marked as obsolete (Deprecated);
+- ProductMap created in Infra/Mappings and ApplyConfiguration and SetColumnType in OnModelCreating;
 
 ---
 
