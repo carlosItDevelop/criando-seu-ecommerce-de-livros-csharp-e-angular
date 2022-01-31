@@ -252,14 +252,40 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 ### Novas demandas:
 
 
-	-[ ] Instalar, Configurar e Registrar o FluentValidation;
-		-[ ] Criar o ProductValidation e o DomainService;
-		-[ ] Validar com BaseService e Notification Pattern;
+- [ ] Instalar, Configurar e Registrar o FluentValidation;
+	- [ ] Criar o ProductValidation e o DomainService;
+	- [ ] Validar com BaseService e Notification Pattern;
 
-	-[ ] Upload do Arquivo de Imagem do Product;
-		-[ ] Fazer isso também no Swagger;
+- [ ] Upload do Arquivo de Imagem do Product;
+	- [ ] Fazer isso também no Swagger;
 
-    -[ ] Separar Category em uma nova Model;
-        -[ ] Criar e mapear o relacionamento entre Product e Category;
+- [ ] Separar Category em uma nova Model;
+    - [ ] Criar e mapear o relacionamento entre Product e Category;
 
-    :black_square_button: `:black_square_button:` | :white_check_mark: `:white_check_mark:`
+:black_square_button: `:black_square_button:` | :white_check_mark: `:white_check_mark:`
+
+## Features
+- [x] Onion Architecture
+- [x] CQRS with MediatR Library
+- [x] Entity Framework Core - Code First
+- [x] Repository Pattern - Generic
+- [x] MediatR Pipeline Logging & Validation
+- [x] Serilog
+- [x] Swagger UI
+- [x] Response Wrappers
+- [x] Healthchecks
+- [x] Pagination
+- [ ] In-Memory Caching
+- [ ] Redis Caching
+- [x] In-Memory Database
+- [x] Microsoft Identity with JWT Authentication
+- [x] Role based Authorization
+- [x] Identity Seeding
+- [x] Database Seeding
+- [x] Custom Exception Handling Middlewares
+- [x] API Versioning
+- [x] Fluent Validation
+- [x] Automapper
+- [x] SMTP / Mailkit / Sendgrid Email Service
+- [x] Complete User Management Module (Register / Generate Token / Forgot Password / Confirmation Mail)
+- [x] User Auditing
