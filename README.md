@@ -262,7 +262,7 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
     - [ ] Criar e mapear o relacionamento entre Product e Category;
 
 
-### Features Requided / Implemented
+### Features Required && Implemented
 
 - :white_check_mark: Onion Architecture                            
 - :black_square_button: CQRS with MediatR Library                     
