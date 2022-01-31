@@ -264,24 +264,24 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 ### Features Requided / Implemented
 
-- [x] Onion Architecture                            :white_check_mark:
+- :white_check_mark: Onion Architecture                            
 - [ ] CQRS with MediatR Library                     :black_square_button:
-- [x] Entity Framework Core - Code First            :white_check_mark:
-- [x] Repository Pattern - Generic                  :white_check_mark:
+- :white_check_mark: Entity Framework Core - Code First
+- :white_check_mark: Repository Pattern - Generic
 - [ ] MediatR Pipeline Logging & Validation         :black_square_button:
-- [x] Swagger UI                                    :white_check_mark:
-- [x] Healthchecks                                  :white_check_mark:
+- :white_check_mark: Swagger UI
+- :white_check_mark: Healthchecks
 - [ ] Pagination                                    :black_square_button:
 - [ ] In-Memory Caching                             :black_square_button:
 - [ ] Redis Caching                                 :black_square_button:
 - [ ] Microsoft Identity with JWT Authentication    :black_square_button:
-- [x] Role based Authorization                      :white_check_mark:
+- :white_check_mark: Role based Authorization
 - [ ] Identity Seeding                              :black_square_button:
-- [x] Database Seeding                              :white_check_mark:
+- :white_check_mark: Database Seeding
 - [ ] Custom Exception Handling Middlewares         :black_square_button:
-- [x] API Versioning                                :white_check_mark:
+- :white_check_mark: API Versioning
 - [ ] Fluent Validation                             :black_square_button:
-- [x] Automapper                                    :white_check_mark:
+- :white_check_mark: Automapper
 - [ ] SMTP / Mailkit / Sendgrid Email Service       :black_square_button:
 - [ ] Complete User Management Module (Register / Generate Token / Forgot Password / Confirmation Mail)                                             :black_square_button:
 - [ ] User Auditing                                 :black_square_button:
