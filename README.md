@@ -251,7 +251,6 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 
 ### Novas demandas:
 
-
 - [ ] Instalar, Configurar e Registrar o FluentValidation;
 	- [ ] Criar o ProductValidation e o DomainService;
 	- [ ] Validar com BaseService e Notification Pattern;
@@ -262,30 +261,27 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 - [ ] Separar Category em uma nova Model;
     - [ ] Criar e mapear o relacionamento entre Product e Category;
 
-:black_square_button: `:black_square_button:` | :white_check_mark: `:white_check_mark:`
 
-## Features
-- [x] Onion Architecture
-- [x] CQRS with MediatR Library
-- [x] Entity Framework Core - Code First
-- [x] Repository Pattern - Generic
-- [x] MediatR Pipeline Logging & Validation
-- [x] Serilog
-- [x] Swagger UI
-- [x] Response Wrappers
-- [x] Healthchecks
-- [x] Pagination
-- [ ] In-Memory Caching
-- [ ] Redis Caching
-- [x] In-Memory Database
-- [x] Microsoft Identity with JWT Authentication
-- [x] Role based Authorization
-- [x] Identity Seeding
-- [x] Database Seeding
-- [x] Custom Exception Handling Middlewares
-- [x] API Versioning
-- [x] Fluent Validation
-- [x] Automapper
-- [x] SMTP / Mailkit / Sendgrid Email Service
-- [x] Complete User Management Module (Register / Generate Token / Forgot Password / Confirmation Mail)
-- [x] User Auditing
+### Features Requided / Implemented
+
+- [x] Onion Architecture                            :white_check_mark:
+- [ ] CQRS with MediatR Library                     :black_square_button:
+- [x] Entity Framework Core - Code First            :white_check_mark:
+- [x] Repository Pattern - Generic                  :white_check_mark:
+- [ ] MediatR Pipeline Logging & Validation         :black_square_button:
+- [x] Swagger UI                                    :white_check_mark:
+- [x] Healthchecks                                  :white_check_mark:
+- [ ] Pagination                                    :black_square_button:
+- [ ] In-Memory Caching                             :black_square_button:
+- [ ] Redis Caching                                 :black_square_button:
+- [ ] Microsoft Identity with JWT Authentication    :black_square_button:
+- [x] Role based Authorization                      :white_check_mark:
+- [ ] Identity Seeding                              :black_square_button:
+- [x] Database Seeding                              :white_check_mark:
+- [ ] Custom Exception Handling Middlewares         :black_square_button:
+- [x] API Versioning                                :white_check_mark:
+- [ ] Fluent Validation                             :black_square_button:
+- [x] Automapper                                    :white_check_mark:
+- [ ] SMTP / Mailkit / Sendgrid Email Service       :black_square_button:
+- [ ] Complete User Management Module (Register / Generate Token / Forgot Password / Confirmation Mail)                                             :black_square_button:
+- [ ] User Auditing                                 :black_square_button:
