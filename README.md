@@ -265,7 +265,7 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 ### Features Required && Implemented
 
 - :white_check_mark: Onion Architecture                            
-- :black_square_button: CQRS with MediatR Library                     
+- :white_square_button: CQRS with MediatR Library                     
 - :white_check_mark: Entity Framework Core - Code First
 - :white_check_mark: Repository Pattern - Generic
 - :black_square_button: MediatR Pipeline Logging & Validation
