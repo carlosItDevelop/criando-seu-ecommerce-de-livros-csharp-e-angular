@@ -265,23 +265,23 @@ This project has adopted the [Cooperchip Open Source Code of Conduct](https://co
 ### Features Requided / Implemented
 
 - :white_check_mark: Onion Architecture                            
-- [ ] CQRS with MediatR Library                     :black_square_button:
+- :black_square_button: CQRS with MediatR Library                     
 - :white_check_mark: Entity Framework Core - Code First
 - :white_check_mark: Repository Pattern - Generic
-- [ ] MediatR Pipeline Logging & Validation         :black_square_button:
+- :black_square_button: MediatR Pipeline Logging & Validation
 - :white_check_mark: Swagger UI
 - :white_check_mark: Healthchecks
-- [ ] Pagination                                    :black_square_button:
-- [ ] In-Memory Caching                             :black_square_button:
-- [ ] Redis Caching                                 :black_square_button:
-- [ ] Microsoft Identity with JWT Authentication    :black_square_button:
+- :black_square_button: Pagination
+- :black_square_button: In-Memory Caching
+- :black_square_button: Redis Caching
+- :black_square_button: Microsoft Identity with JWT Authentication
 - :white_check_mark: Role based Authorization
-- [ ] Identity Seeding                              :black_square_button:
+- :black_square_button: Identity Seeding
 - :white_check_mark: Database Seeding
-- [ ] Custom Exception Handling Middlewares         :black_square_button:
+- :black_square_button: Custom Exception Handling Middlewares
 - :white_check_mark: API Versioning
-- [ ] Fluent Validation                             :black_square_button:
+- :black_square_button: Fluent Validation
 - :white_check_mark: Automapper
-- [ ] SMTP / Mailkit / Sendgrid Email Service       :black_square_button:
-- [ ] Complete User Management Module (Register / Generate Token / Forgot Password / Confirmation Mail)                                             :black_square_button:
-- [ ] User Auditing                                 :black_square_button:
+- :black_square_button: SMTP / Mailkit / Sendgrid Email Service
+- :black_square_button: Complete User Management Module (Register / Generate Token / Forgot Password / Confirmation Mail)
+- :black_square_button: User Auditing
